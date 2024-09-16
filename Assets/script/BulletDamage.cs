@@ -22,7 +22,7 @@ public class BulletDamage : MonoBehaviour
 
         if (collision.CompareTag("Enemy") && bullet)
         {
-            collision.GetComponent<Health>().TakeDamage(damage);
+            collision.GetComponent<Health>().TakeDamageEnemy(damage);
             gameObject.SetActive(false);
             blp.ReturnBulletToPool(gameObject);
         }

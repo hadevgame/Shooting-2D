@@ -212,3 +212,4 @@ MonoBehaviour:
   maxhealth: 100
   curhealth: 0
   healthBar: {fileID: 0}
+  heartPrefab: {fileID: 2512353481108410763, guid: af5900fb984f6da49a49f89e118f2cdb, type: 3}
