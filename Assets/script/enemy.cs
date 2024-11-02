@@ -20,61 +20,12 @@ public class enemy : MonoBehaviour
 
     bool reachDes = false;
     private float fireCD;
+   
 
     Path path;
     Coroutine moveCoroutine;
     Health health;
     Health eHealth;
-
-
-
-    /*Vector3 target = FindObjectOfType<player>().transform.position;
-    int curWP = 0;
-    private void Start()
-    {
-        seeker = GetComponent<Seeker>();
-
-        InvokeRepeating("UpdatePath", 0f, 0.5f);
-       
-    }
-
-    void UpdatePath() 
-    {
-        if(seeker.IsDone()) 
-            seeker.StartPath(transform.position, target, OnPathComplete);
-    }
-    void OnPathComplete(Path p) 
-    {
-        if (!p.error) //return;
-        {
-            path = p;
-            curWP = 0;
-        }
-       
-    }
-
-    private void FixedUpdate()
-    {
-        if(path ==null)
-            return;
-        if(curWP>= path.vectorPath.Count)
-        {
-            reachDes= true;
-            return;
-        }
-        else 
-        {
-            reachDes = false;
-        }
-
-        Vector2 directtion = ((Vector2)path.vectorPath[curWP] - (Vector2)transform.position).normalized;
-        Vector2 force = directtion * moveSpeed * Time.deltaTime;
-        transform.position += (Vector3)force;
-
-        float distance = Vector2.Distance(transform.position, path.vectorPath[curWP]);
-        if (distance < nextWPDistance)
-            curWP++;
-    }*/
 
      void Start()
      {
@@ -168,6 +119,7 @@ public class enemy : MonoBehaviour
          if (collision.CompareTag("Player"))
          {
              health = collision.GetComponent<Health>();
+             
              InvokeRepeating("DamagePlayer", 0f, 0.2f);
          }
      }

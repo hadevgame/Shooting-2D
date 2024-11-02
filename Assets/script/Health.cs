@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Health : MonoBehaviour
 {
     [SerializeField] int maxhealth;
@@ -10,13 +11,14 @@ public class Health : MonoBehaviour
     public HealthBar healthBar;
 
     public GameObject heartPrefab;
+    public GameOverMenu goMenuUI;
+    Animator animator;
+    private bool isDead = false;
     void Start()
     {
+        animator = GetComponent<Animator>();
+
         curhealth = maxhealth;
-        if (healthBar != null)
-        {
-            healthBar.UpdateBar(curhealth, maxhealth);
-        }
     }
    
     void Update()
@@ -24,14 +26,21 @@ public class Health : MonoBehaviour
       
     }
 
-    public void TakeDamage(int damage) 
+    public void TakeDamage(int damage)
     {
+        if (isDead)
+            return;
+
         curhealth -= damage;
 
-        if (curhealth <= 0) 
+        if (curhealth <= 0 && !isDead)
         {
-            curhealth= 0;
+            curhealth = 0;
+            isDead = true;
+            //animator.SetTrigger("dead");
+            goMenuUI.DisplayGameOver();
             Destroy(gameObject);
+
         }
 
         if (healthBar != null)
