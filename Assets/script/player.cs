@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class player : MonoBehaviour
@@ -21,10 +22,13 @@ public class player : MonoBehaviour
 
     private float checkTime ;
 
+    public weapons wp;
+
+    private int countfp =1;
   
     void Start()
     {
-        animator.GetComponent<Animator>();  
+        animator.GetComponent<Animator>();
     }
 
     void Update()
@@ -58,6 +62,29 @@ public class player : MonoBehaviour
        
            
     }
-   
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(countfp == 1)
+        {
+            if (collision.CompareTag("fp"))
+            {
+                wp.fp2 = true;
+                Destroy(collision.gameObject);
+                countfp += 1;
+                return;
+            }
+        }
+        if (countfp == 2) 
+        {
+            if (collision.CompareTag("fp"))
+            {
+                wp.fp3 = true;
+                Destroy(collision.gameObject);
+                countfp += 1;
+                return ;
+            }
+        }
+        else if (collision.CompareTag("fp")) Destroy(collision.gameObject);
+    }
 
 }
