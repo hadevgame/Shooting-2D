@@ -12,7 +12,6 @@ public class enemy : MonoBehaviour
     public Seeker seeker;
     public float moveSpeed = 3f;
     public float nextWPDistance = 3f;
-    public bool shootable = false;
     public GameObject bullet;
     public float bulletspeed;
     public float timebtwFire;
@@ -36,12 +35,16 @@ public class enemy : MonoBehaviour
 
     void Update()
     {
-        fireCD -= Time.deltaTime;
-        if (fireCD < 0)
+        if(roaming == true) 
         {
-            fireCD = timebtwFire;
-            EnemyFireBullet();
+            fireCD -= Time.deltaTime;
+            if (fireCD < 0)
+            {
+                fireCD = timebtwFire;
+                EnemyFireBullet();
+            }
         }
+        
 
     }
 

@@ -147,7 +147,7 @@ public class weapons : MonoBehaviour
 
     private IEnumerator ReturnBulletToPoolDelayed(GameObject bullet)
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(8f);
 
         bulletPool.ReturnBulletToPool(bullet);
     }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 780930082561881666}
   - component: {fileID: 780930082561881667}
   - component: {fileID: 780930082561881724}
-  - component: {fileID: -1706455275630646266}
+  - component: {fileID: 2006093240834920281}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Enemy
@@ -144,7 +144,6 @@ MonoBehaviour:
   seeker: {fileID: 780930082561881724}
   moveSpeed: 3
   nextWPDistance: 0.3
-  shootable: 1
   bullet: {fileID: 4980771208749080946, guid: 54ad52f9f1e50a34abc1afa0305cfc08, type: 3}
   bulletspeed: 8
   timebtwFire: 4
@@ -198,7 +197,7 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &-1706455275630646266
+--- !u!114 &2006093240834920281
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -207,13 +206,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 780930082561881679}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a64312b76e2ee7942a2db89aa9db2c27, type: 3}
+  m_Script: {fileID: 11500000, guid: b3b97231db5bdb348a202709fff0e33e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxhealth: 50
   curhealth: 0
-  healthBar: {fileID: 0}
   heartPrefab: {fileID: 2512353481108410763, guid: af5900fb984f6da49a49f89e118f2cdb, type: 3}
+  fpbPrefab: {fileID: 2237550684664501747, guid: 522cb5059050d02439baedc08f539843, type: 3}
 --- !u!1 &780930083012660117
 GameObject:
   m_ObjectHideFlags: 0

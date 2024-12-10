@@ -9,8 +9,6 @@ public class Health : MonoBehaviour
     public int curhealth;
 
     public HealthBar healthBar;
-
-    public GameObject heartPrefab;
     public GameOverMenu goMenuUI;
     Animator animator;
     private bool isDead = false;
@@ -49,29 +47,6 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void TakeDamageEnemy(int damage)
-    {
-        curhealth -= damage;
-        float random = Random.value;
-        if (curhealth <= 0)
-        {
-            curhealth = 0;
-            Destroy(gameObject);
-            if (random < 0.5f)
-            {
-                DropHeart();
-            }
-            
-          
-        }
-
-        if (healthBar != null)
-        {
-            healthBar.UpdateBar(curhealth, maxhealth);
-
-        }
-    }
-
     public void UpdateHealth(int value)
     {
         if (curhealth + value > maxhealth)
@@ -85,12 +60,5 @@ public class Health : MonoBehaviour
             curhealth += value;
             healthBar.UpdateBar(curhealth, maxhealth);
         }
-    }
-
-    public void DropHeart()
-    {
-        Vector3 heartPosition = transform.position;
-        GameObject heart = Instantiate(heartPrefab, heartPosition, Quaternion.identity);
-
     }
 }
